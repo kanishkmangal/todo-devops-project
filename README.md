@@ -23,7 +23,7 @@ This is a simple, clean, and beginner-friendly To-Do List web application built 
    ```
 
 3. **Open in Browser**
-   Open the URL provided in your terminal (usually `http://localhost:5173`) to view the app.
+   Open the URL provided in your terminal (usually `http://localhost:5174`) to view the app.
 
 ## Folder Structure
 - `src/` - Contains the React source code.
