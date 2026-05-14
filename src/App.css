@@ -8,13 +8,16 @@
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+/* App Wrapper replaces body styling to easily toggle dark mode class */
+.app-wrapper {
   background-color: #f4f7f6;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-container {
@@ -25,16 +28,38 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   padding: 24px;
   margin: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.app-header {
-  text-align: center;
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
 }
 
 .app-header h1 {
   font-size: 1.8rem;
   color: #2c3e50;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Todo Form Styles */
@@ -51,7 +76,9 @@ body {
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  background-color: white;
+  color: #333;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .todo-input:focus {
@@ -84,6 +111,7 @@ body {
   color: #888;
   font-style: italic;
   margin-top: 20px;
+  transition: color 0.3s ease;
 }
 
 /* Todo Item Styles */
@@ -93,7 +121,7 @@ body {
   padding: 12px;
   border-bottom: 1px solid #eee;
   gap: 12px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.3s ease;
 }
 
 .todo-item:hover {
@@ -138,4 +166,52 @@ body {
 .delete-btn:hover {
   opacity: 1;
   background-color: #c0392b;
+}
+
+/* ========================================= */
+/*               DARK MODE                   */
+/* ========================================= */
+
+.app-wrapper.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.app-wrapper.dark-mode .app-container {
+  background: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.app-wrapper.dark-mode .app-header h1 {
+  color: #e0e0e0;
+}
+
+.app-wrapper.dark-mode .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-wrapper.dark-mode .todo-input {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #f5f5f5;
+}
+
+.app-wrapper.dark-mode .todo-input:focus {
+  border-color: #3498db;
+}
+
+.app-wrapper.dark-mode .todo-item {
+  border-bottom-color: #333;
+}
+
+.app-wrapper.dark-mode .todo-item:hover {
+  background-color: #2a2a2a;
+}
+
+.app-wrapper.dark-mode .empty-message {
+  color: #aaa;
+}
+
+.app-wrapper.dark-mode .todo-text.completed {
+  color: #666;
 }
